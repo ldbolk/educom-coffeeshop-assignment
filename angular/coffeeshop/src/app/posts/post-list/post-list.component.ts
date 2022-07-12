@@ -7,9 +7,9 @@ import { Component, Input } from "@angular/core";
 })
 export class PostListComponent {
     // orders = [
-        //     {title: 'First order', content: 'This is the first order\'s content'},
-        //     {title: 'Second order', content: 'This is the second order\'s content'},
-        //     {title: 'Third order', content: 'This is the third order\'s content'}
-        // ]
-        @Input() orders: any[] = [];
+    //     {title: 'First order', content: 'This is the first order\'s content'},
+    //     {title: 'Second order', content: 'This is the second order\'s content'},
+    //     {title: 'Third order', content: 'This is the third order\'s content'}
+    // ]
+    @Input() orders: any[] = [];
 }
