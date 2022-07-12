@@ -23,9 +23,22 @@ export default class mongo {
             })
         })
     })
+    
+    static create = (collection, data) => new Promise( (resolve, reject) => {
+        MongoClient.connect(mongoUrl, (err, client) => {
+            if(err) {
+                reject({ error: err, message: err.message });
+            }
+            let db = client.db(mongoDB);
 
-    static getAll = (collection) => new Promise( (resolve, reject) => {
-
+            db.collection(collection).insertOne(data, (err, result) => {
+                client.close();
+                if(err) {
+                    reject({ error: err, message: err.message });
+                }
+                resolve(result);
+            })
+        })
     })
 
 }

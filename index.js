@@ -12,7 +12,13 @@ app.use((req, res, next) => {
     next();
 })
 
-// Get all types/orders/...
+app.listen(3000, () => {
+    console.log("I am a machine");
+})
+
+
+// GET //////////////////////////////////////////////////////////////////////////////////////////////////
+// Get all types/orders/...//////////////////////////////////////////////////////////////////////////////
 app.get("/:path", (req, res) => {
     mongo.get(req.params.path, null)
     .then(result => {
@@ -35,9 +41,15 @@ app.get("/:path/:id", (req, res) => {
 })
 
 
-
-
-
-app.listen(3000, () => {
-    console.log("I am a machine");
+// POST ////////////////////////////////////////////////////////////////////////////////////////////////
+// Post an order ///////////////////////////////////////////////////////////////////////////////////////
+app.post("/orders", (req, res) => {
+    mongo.create("orders")
+    .then(result => {
+        res.send(result);
+    })
+    .catch(err => {
+        res.send(err);
+    })
 })
+
