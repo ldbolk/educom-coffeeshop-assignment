@@ -5,9 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  orders = [];
-  onOrderAdded(order) {
-    this.orders.push(order);
+  storedOrders: any[] = [];
+  onOrderAdded(order: any) {
+    this.storedOrders.push(order);
   }
 }
