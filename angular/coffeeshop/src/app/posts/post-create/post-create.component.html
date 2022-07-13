@@ -1,13 +1,24 @@
 <mat-card>
     <form (submit)="onAddOrder(orderForm)" #orderForm="ngForm">
         <mat-form-field>
-            <input 
+            <mat-label>Select me</mat-label>
+            <mat-select 
+            type="select"
+            name="cType"
+            ngModel
+            #type="ngModel"
+            required>
+                <mat-option value="option">option</mat-option>
+                <mat-option value="option2">option2</mat-option>
+            </mat-select>
+            <mat-hint align="end">test</mat-hint>
+            <!-- <input 
             matInput 
             type="text" 
             name="cType"
             ngModel
             required
-            #type="ngModel">
+            #type="ngModel"> -->
             <mat-error *ngIf="type.invalid">Please select a coffee type</mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -16,7 +27,8 @@
                 row="4"
                 name="content" 
                 ngModel
-                required>
+                placeholder="Anything we should be aware of?"
+                #content="ngModel">
             </textarea>
     </mat-form-field>
         <button 
