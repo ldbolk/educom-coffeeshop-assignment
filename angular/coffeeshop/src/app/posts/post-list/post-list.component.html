@@ -4,7 +4,13 @@
             {{ $any(order).cType }}
         </mat-expansion-panel-header>
         <p>{{ $any(order).content }}</p>
-        <p></p>
+        Extras:
+        <ul **ngIf="order.Milk">
+            <li>{{order.Milk}}</li>
+        </ul>
+        <ul **ngIf="order.Sugar">
+            <li>{{order.Sugar}}</li>
+        </ul>
     </mat-expansion-panel>
 </mat-accordion>
 <p class="info-text mat-body-1" *ngIf="orders.length <= 0">No orders added yet</p>

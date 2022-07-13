@@ -8,10 +8,11 @@
             ngModel
             #type="ngModel"
             required>
-                <mat-option value="option">option</mat-option>
-                <mat-option value="option2">option2</mat-option>
+                <mat-option value="Regular">Regular</mat-option>
+                <mat-option value="Mocha">Mocha</mat-option>
+                <mat-option value="Espresso">Espresso</mat-option>
+                <mat-option value="Cappuccino">Cappuccino</mat-option>
             </mat-select>
-            <mat-hint align="end">test</mat-hint>
             <!-- <input 
             matInput 
             type="text" 
@@ -21,6 +22,13 @@
             #type="ngModel"> -->
             <mat-error *ngIf="type.invalid">Please select a coffee type</mat-error>
         </mat-form-field>
+        <mat-checkbox ngModel #type="ngModel" name="checkMilk" defaultValue="false">
+            Milk
+        </mat-checkbox>
+        <br>
+        <mat-checkbox ngModel #type="ngModel" name="checkSugar" defaultValue="false">
+            Sugar
+        </mat-checkbox>
         <mat-form-field>
             <textarea 
                 matInput 
@@ -30,7 +38,7 @@
                 placeholder="Anything we should be aware of?"
                 #content="ngModel">
             </textarea>
-    </mat-form-field>
+        </mat-form-field>
         <button 
             mat-raised-button 
             color = "primary"

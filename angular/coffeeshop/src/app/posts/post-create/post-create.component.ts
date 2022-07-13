@@ -15,10 +15,19 @@ export class PostCreateComponent {
         if (form.invalid) {
             return;
         }
+        if (form.value.checkMilk == '') {
+            form.value.checkMilk = false
+        }
+        if (form.value.checkSugar == '') {
+            form.value.checkSugar = false;
+        }
         const order = {
             cType: form.value.cType, 
-            content: form.value.content
+            content: form.value.content,
+            Milk: form.value.checkMilk,
+            Sugar: form.value.checkSugar
         };
+        console.log(order)
         this.orderCreated.emit(order)
     }
 }
