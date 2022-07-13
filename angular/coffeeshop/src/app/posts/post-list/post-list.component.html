@@ -1,7 +1,7 @@
 <mat-accordion multi="true" *ngIf="orders.length > 0">
     <mat-expansion-panel *ngFor="let order of orders">
         <mat-expansion-panel-header>
-            {{ $any(order).title }}
+            {{ $any(order).cType }}
         </mat-expansion-panel-header>
         <p>{{ $any(order).content }}</p>
     </mat-expansion-panel>

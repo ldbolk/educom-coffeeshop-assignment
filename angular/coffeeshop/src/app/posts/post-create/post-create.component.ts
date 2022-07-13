@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-post-create', //To use the component
@@ -6,14 +7,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
     styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent {
-    enteredTitle = '';
+    enteredType = '';
     enteredContent = '';
     @Output() orderCreated = new EventEmitter(); //Output makes it an event that you can listen to from the outside
     
-    onAddOrder() {
+    onAddOrder(form: NgForm) {
+        if (form.invalid) {
+            return;
+        }
         const order = {
-            title: this.enteredTitle, 
-            content: this.enteredContent
+            cType: form.value.cType, 
+            content: form.value.content
         };
         this.orderCreated.emit(order)
     }
