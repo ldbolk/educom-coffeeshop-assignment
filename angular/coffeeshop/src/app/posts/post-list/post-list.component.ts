@@ -12,4 +12,5 @@ export class PostListComponent {
     //     {title: 'Third order', content: 'This is the third order\'s content'}
     // ]
     @Input() orders: any[] = [];
+    
 }
