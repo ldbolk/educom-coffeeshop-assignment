@@ -40,7 +40,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatSelectModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
