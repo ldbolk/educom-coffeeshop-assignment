@@ -29,5 +29,6 @@ export class PostCreateComponent {
         };
         console.log(order)
         this.orderCreated.emit(order)
+        form.resetForm();
     }
 }
