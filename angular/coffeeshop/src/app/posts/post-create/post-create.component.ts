@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { postService } from '../post-service';
 
 @Component({
     selector: 'app-post-create', //To use the component
@@ -9,8 +10,18 @@ import { NgForm } from '@angular/forms';
 export class PostCreateComponent {
     enteredType = '';
     enteredContent = '';
+
     @Output() orderCreated = new EventEmitter(); //Output makes it an event that you can listen to from the outside
     
+    constructor(public PostService: postService) {}
+
+    addOrder(data: {}) {
+        this.PostService.postOrders(data)
+        .subscribe(res => {
+            console.log(res);
+        })
+    }
+
     onAddOrder(form: NgForm) {
         if (form.invalid) {
             return;
@@ -27,7 +38,7 @@ export class PostCreateComponent {
             Milk: form.value.checkMilk,
             Sugar: form.value.checkSugar
         };
-        console.log(order)
-        this.orderCreated.emit(order)
+        this.addOrder(order);
+        // this.orderCreated.emit(order)
     }
 }

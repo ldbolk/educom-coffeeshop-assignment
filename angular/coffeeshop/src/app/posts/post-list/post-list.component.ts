@@ -7,20 +7,16 @@ import { postService } from "../post-service";
     styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent {
-    // orders = [
-    //     {title: 'First order', content: 'This is the first order\'s content'},
-    //     {title: 'Second order', content: 'This is the second order\'s content'},
-    //     {title: 'Third order', content: 'This is the third order\'s content'}
-    // ]
-    orderList: any[] = [];
+    orders: any;
     
     constructor(public PostService: postService) {
         this.PostService.getOrders()
         .subscribe(res => {
+            this.orders = res;
             console.log(res);
         })
     }
 
-    @Input() orders: any[] = [];
+    // @Input() orders: any[] = [];
     
 }

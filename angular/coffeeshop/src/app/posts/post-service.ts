@@ -12,9 +12,17 @@ export class postService {
     public getOrders() {
         return this.http.get('http://localhost:3000/orders/')
         .pipe(map(data => {
-            return data
             console.log(data)
+            return data
         }));
+    }
+
+    public postOrders(order: {}) {
+        return this.http.post('http://localhost:3000/orders', order)
+        .pipe(map(data => {
+            console.log(data)
+            return data
+        }))
     }
 
 }
