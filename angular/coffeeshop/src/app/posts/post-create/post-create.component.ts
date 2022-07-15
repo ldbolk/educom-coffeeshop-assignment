@@ -11,14 +11,14 @@ export class PostCreateComponent {
     enteredType = '';
     enteredContent = '';
 
-    @Output() orderCreated = new EventEmitter(); //Output makes it an event that you can listen to from the outside
-    
+    // @Output() orderCreated = new EventEmitter(); //Output makes it an event that you can listen to from the outside
+
     constructor(public PostService: postService) {}
 
     addOrder(data: {}) {
         this.PostService.postOrders(data)
         .subscribe(res => {
-            console.log(res);
+            // console.log(res);
         })
     }
 

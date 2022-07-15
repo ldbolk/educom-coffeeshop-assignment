@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { postService } from "../post-service";
 
 @Component({
@@ -6,16 +6,20 @@ import { postService } from "../post-service";
     templateUrl: './post-list.component.html',
     styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent {
-    orders: any;
+export class PostListComponent{ // Implements OnInit
+    orders: any = [];
     
     constructor(public PostService: postService) {
         this.PostService.getOrders()
         .subscribe(res => {
             this.orders = res;
-            console.log(res);
+            // console.log(res);
         })
     }
+
+    // ngOnInit(){
+    //     setTimeout(() => {this.ngOnInit()}, 1000 * 10 )
+    // };
 
     // @Input() orders: any[] = [];
     
