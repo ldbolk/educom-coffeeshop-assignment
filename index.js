@@ -19,7 +19,7 @@ app.listen(3000, () => {
 
 // GET //////////////////////////////////////////////////////////////////////////////////////////////////
 // Get all types/orders/...//////////////////////////////////////////////////////////////////////////////
-app.get("/:path", (req, res) => {
+app.get("/:path", (req, res) => {  // Get the collection you enter in the localhost/3000/collectionName
     mongo.get(req.params.path, null)
     .then(result => {
         res.send(result);

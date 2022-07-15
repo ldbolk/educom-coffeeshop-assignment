@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { postService } from "../post-service";
 
 @Component({
     selector: 'app-post-list',
@@ -11,6 +12,15 @@ export class PostListComponent {
     //     {title: 'Second order', content: 'This is the second order\'s content'},
     //     {title: 'Third order', content: 'This is the third order\'s content'}
     // ]
+    orderList: any[] = [];
+    
+    constructor(public PostService: postService) {
+        this.PostService.getOrders()
+        .subscribe(res => {
+            console.log(res);
+        })
+    }
+
     @Input() orders: any[] = [];
     
 }
